@@ -1284,7 +1284,7 @@ def main():
     if not args.cpu and xla_bridge.get_backend().platform == "cpu":
         print(NO_GPU_FOUND, file=sys.stderr)
         sys.exit(1)
-
+    
     queries, is_complex = get_queries(args.input, args.sort_queries_by)
     model_type = set_model_type(is_complex, args.model_type)
     download_alphafold_params(model_type, data_dir)
@@ -1295,28 +1295,29 @@ def main():
     model_order = [int(i) for i in args.model_order.split(",")]
 
     assert 1 <= args.recompile_padding, "Can't apply negative padding"
-
-    run(
-        queries=queries,
-        result_dir=args.results,
-        use_templates=args.templates,
-        use_amber=args.amber,
-        msa_mode=args.msa_mode,
-        model_type=model_type,
-        num_models=args.num_models,
-        num_recycles=args.num_recycle,
-        model_order=model_order,
-        is_complex=is_complex,
-        keep_existing_results=not args.overwrite_existing_results,
-        rank_by=args.rank,
-        pair_mode=args.pair_mode,
-        data_dir=data_dir,
-        host_url=args.host_url,
-        stop_at_score=args.stop_at_score,
-        recompile_padding=args.recompile_padding,
-        recompile_all_models=args.recompile_all_models,
-        zip_results=args.zip,
-    )
+    
+    for i in [1 2 3]
+        run(
+            queries=queries,
+            result_dir=args.results,
+            use_templates=args.templates,
+            use_amber=args.amber,
+            msa_mode=args.msa_mode,
+            model_type=model_type,
+            num_models=args.num_models,
+            num_recycles=args.num_recycle,
+            model_order=model_order,
+            is_complex=is_complex,
+            keep_existing_results=not args.overwrite_existing_results,
+            rank_by=args.rank,
+            pair_mode=args.pair_mode,
+            data_dir=data_dir,
+            host_url=args.host_url,
+            stop_at_score=args.stop_at_score,
+            recompile_padding=args.recompile_padding,
+            recompile_all_models=args.recompile_all_models,
+            zip_results=args.zip,
+        )
 
 
 if __name__ == "__main__":
