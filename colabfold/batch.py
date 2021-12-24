@@ -1296,7 +1296,7 @@ def main():
 
     assert 1 <= args.recompile_padding, "Can't apply negative padding"
     
-    for i in [1 2 3]
+    for i in range(0,3):
         run(
             queries=queries,
             result_dir=args.results,
